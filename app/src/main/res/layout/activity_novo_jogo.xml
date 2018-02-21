@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.alexs.megajogos.NovoJogoActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Novo jogo"
+        android:textAlignment="center"
+        android:textSize="39dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Marque os números de sua aposta"
+        android:textAlignment="center"
+        android:textSize="23sp" />
+
+    <GridLayout
+        android:id="@+id/gdNovoJogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="8"
+        android:rowCount="8"
+        android:layout_gravity="center">
+    </GridLayout>
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btnSalvar"
+        android:text="Salvar"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+
