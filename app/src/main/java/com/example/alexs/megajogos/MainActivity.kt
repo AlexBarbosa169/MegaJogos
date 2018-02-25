@@ -4,8 +4,11 @@
     import android.content.Intent
     import android.os.AsyncTask
     import android.os.Bundle
+    import android.support.constraint.solver.widgets.Snapshot
     import android.util.Log
+    import android.view.View
     import android.widget.Button
+    import android.widget.TextView
     import android.widget.Toast
     import org.json.JSONArray
     import org.json.JSONException
@@ -16,16 +19,20 @@
     import java.net.HttpURLConnection
     import java.net.MalformedURLException
     import java.net.URL
+import android.R.attr.duration
+
+
 
     class MainActivity : Activity() {
 
         lateinit var btnComecar : Button
+        lateinit var txtMsg : TextView
         lateinit var megadao : MegaSenaDAO
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
-
+            txtMsg = findViewById(R.id.txtMsg)
             btnComecar = findViewById(R.id.btnComecar)
 
             btnComecar.setOnClickListener({onClick()})
@@ -48,6 +55,11 @@
 
         }
 
+        override fun onResume() {
+            super.onResume()
+            btnComecar.visibility = View.VISIBLE
+        }
+
         fun onClick(){
             try {
 
@@ -60,6 +72,17 @@
         }
 
         inner class DownJson : AsyncTask<String, Void, String>()  {
+
+//            Testando onPreExecute()
+
+            override fun onPreExecute() {
+                super.onPreExecute()
+                btnComecar.text = "Atualizar"
+                btnComecar.visibility = View.INVISIBLE
+                txtMsg.visibility = View.VISIBLE
+
+            }
+
             override fun doInBackground(vararg p0: String): String? {
                 var connection : HttpURLConnection? = null
                 var reader : BufferedReader? = null
@@ -109,7 +132,12 @@
 
                     if(line == null){
                         Log.i("Loto","Nao tem result")
+                        Toast.makeText(this@MainActivity, "Sem conexão com a internet", Toast.LENGTH_SHORT).show()
+                        txtMsg.text = ""
+                        btnComecar.text = "Tentar Novamente"
+                        btnComecar.visibility = View.VISIBLE
                     }else{
+
                         var megaJason : JSONObject = JSONObject(line)
                         var concurso : String = megaJason.getString("numero")
                         var sorteio : JSONArray? = megaJason.getJSONArray("sorteio")
@@ -119,6 +147,7 @@
                             it.putExtra("consurso",concurso)
                             it.putExtra("json", megaJason.toString())
                             Log.i("opcao","Mega")
+                            txtMsg.text = ""
                             startActivity(it)
                         }
             }

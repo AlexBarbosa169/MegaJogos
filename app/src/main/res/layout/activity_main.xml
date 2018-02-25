@@ -27,10 +27,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         >
+        <TextView
+            android:text="Carregando"
+            android:visibility="invisible"
+            android:textSize="40dp"
+            android:id="@+id/txtMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
         <Button
             android:id="@+id/btnComecar"
-            android:text="Click para começar"
+            android:textSize="40dp"
+            android:text="Começar"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
