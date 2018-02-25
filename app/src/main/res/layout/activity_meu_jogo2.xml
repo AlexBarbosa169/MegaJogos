@@ -120,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="2">
         <TextView
             android:text="Acertos"
             android:textSize="30dp"
@@ -136,6 +136,18 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+        <Button
+            android:layout_gravity="top"
+            android:id="@+id/btnApagar"
+            android:text="Apagar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </LinearLayout>
