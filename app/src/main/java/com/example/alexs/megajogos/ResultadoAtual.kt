@@ -25,7 +25,7 @@ class ResultadoAtual : Activity() {
     lateinit var tvPremioQuadra : TextView
     lateinit var btnDetalhes : Button
     lateinit var btnMeusJogos : Button
-    lateinit var itt : Intent
+    lateinit var resultado : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultado_atual)
@@ -46,12 +46,13 @@ class ResultadoAtual : Activity() {
         btnMeusJogos = findViewById(R.id.btnMeusJogos)
 
         var it = intent
-        var js = JSONObject(it.getStringExtra("json"))
+        resultado = it.getStringExtra("json")
+        var js = JSONObject(resultado)
 
 //        btnDetalhes.setOnClickListener({onclickDetalhes(it)})
         btnMeusJogos.setOnClickListener({onMeusJogos()})
 
-        Log.i("jsteste",js.toString())
+        Log.i("jsteste",resultado)
 
         tvConcurso.text = js.getString("numero").toString()
 
@@ -72,8 +73,9 @@ class ResultadoAtual : Activity() {
 
     private fun onMeusJogos() {
 
-        var it = Intent(this@ResultadoAtual,MeusJogosActivity::class.java)
-        startActivity(it)
+        var it2 = Intent(this@ResultadoAtual,MeusJogosActivity::class.java)
+        it2.putExtra("resultado", resultado)
+        startActivity(it2)
     }
 
 }

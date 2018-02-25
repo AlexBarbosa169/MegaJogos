@@ -77,7 +77,6 @@ import android.R.attr.duration
 
             override fun onPreExecute() {
                 super.onPreExecute()
-                btnComecar.text = "Atualizar"
                 btnComecar.visibility = View.INVISIBLE
                 txtMsg.visibility = View.VISIBLE
 

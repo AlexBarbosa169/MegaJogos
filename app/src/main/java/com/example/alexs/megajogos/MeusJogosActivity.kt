@@ -14,6 +14,7 @@ class MeusJogosActivity : Activity() {
     lateinit var lista: ListView
     lateinit var btnAdd: Button
     lateinit var megadao : MegaSenaDAO
+    lateinit var resultado : String
     var jogos = hashMapOf<Int,MegaSena>()
 //    var nomes = arrayListOf<String>("Thalita", "Gilberto", "Alex", "Júnior", "Lucas", "Raimundo", "Mateus")
     var nomes = arrayListOf<String>()
@@ -23,12 +24,15 @@ class MeusJogosActivity : Activity() {
         setContentView(R.layout.activity_meus_jogos)
 //      Testando acesso para leitura do banco
 
+        var it = intent
+        resultado = it.getStringExtra("resultado")
+
         megadao = MegaSenaDAO(this)
         for(m : MegaSena in megadao.select()){
             nomes.add(m.toString())
         }
 
-        Log.i("MeusJogos", nomes.toString())
+        Log.i("MeusJogos", resultado)
 
 //      Testando acesso para leitura do banco
 
@@ -40,7 +44,7 @@ class MeusJogosActivity : Activity() {
         this.lista.adapter = adapter
 
         this.lista.setOnItemClickListener({ parent, view, position, id ->
-            insere(position)
+            abreJogo(position)
         })
 
         // click longo
@@ -48,6 +52,15 @@ class MeusJogosActivity : Activity() {
             remove(position)
             true
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        nomes.clear()
+        megadao = MegaSenaDAO(this)
+        for(m : MegaSena in megadao.select()){
+            nomes.add(m.toString())
+        }
     }
 
     fun insere(position : Int){
@@ -59,8 +72,20 @@ class MeusJogosActivity : Activity() {
     fun remove(position : Int){
         (this.lista.adapter as ArrayAdapter<String>).remove((this.lista.adapter as ArrayAdapter<String>).getItem(position))
     }
-//    fun insere(position : Int){
-//        var it = Intent(this,NovoJogoActivity::class.java)
-//        startActivity(it)
-//    }
+
+    fun abreJogo(position: Int){
+        var it2 = Intent(this,MeuJogo::class.java)
+
+        var a = 0
+        for(m : MegaSena in megadao.select()){
+            nomes.add(m.toString())
+            if(a == position){
+                it2.putExtra("meuJogo", m.jogo.toString())
+                Log.i("position",position.toString())
+            }
+            a++
+        }
+        it2.putExtra("concursoJson", this.resultado)
+        startActivity(it2)
+    }
 }
