@@ -52,16 +52,35 @@ class MeusJogosActivity : Activity() {
             remove(position)
             true
         })
+        Log.i("ciclo","onCreate")
     }
 
-    override fun onResume() {
-        super.onResume()
+    /*override fun onStart() {
+        super.onStart()
         nomes.clear()
         megadao = MegaSenaDAO(this)
         for(m : MegaSena in megadao.select()){
             nomes.add(m.toString())
         }
+        Log.i("ciclo","onStart")
+    }*/
+
+    override fun onRestart() {
+        super.onRestart()
+        nomes.clear()
+        megadao = MegaSenaDAO(this)
+        for(m : MegaSena in megadao.select()){
+            nomes.add(m.toString())
+        }
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nomes)
+        this.lista.adapter = adapter
+        Log.i("ciclo","onRestart")
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//
+//    }
 
     fun insere(position : Int){
         var it = Intent(this,NovoJogoActivity::class.java)
