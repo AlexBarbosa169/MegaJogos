@@ -44,64 +44,168 @@
         >
         <TextView
             android:id="@+id/tvNum1"
+            android:text="69"
+            android:textSize="40sp"
+            android:background="#98FB98"
+            android:layout_margin="1dp"
             android:width="0dp"
             android:layout_columnWeight="1"
-            android:text="69"
-            android:textSize="57sp"
-            android:background="#98FB98"
             android:textAlignment="center"
-
             />
         <TextView
             android:id="@+id/tvNum2"
             android:text="69"
+            android:textSize="40sp"
+            android:background="#3CB371"
+            android:layout_margin="1dp"
             android:width="0dp"
             android:layout_columnWeight="1"
-            android:textSize="57sp"
-            android:background="#3CB371"
+            android:textAlignment="center"
             />
         <TextView
             android:id="@+id/tvNum3"
-            android:text="6"
-            android:textSize="57sp"
+            android:text="69"
+            android:textSize="40sp"
             android:background="#98FB98"
-            android:textAlignment="center"
+            android:layout_margin="1dp"
             android:width="0dp"
             android:layout_columnWeight="1"
+            android:textAlignment="center"
             />
         <TextView
             android:id="@+id/tvNum4"
             android:text="69"
-            android:textSize="57sp"
+            android:textSize="40sp"
             android:background="#3CB371"
+            android:layout_margin="1dp"
             android:width="0dp"
             android:layout_columnWeight="1"
+            android:textAlignment="center"
             />
         <TextView
             android:id="@+id/tvNum5"
             android:text="69"
-            android:textSize="57sp"
+            android:textSize="40sp"
             android:background="#98FB98"
-            android:textAlignment="center"
+            android:layout_margin="1dp"
             android:width="0dp"
             android:layout_columnWeight="1"
+            android:textAlignment="center"
             />
         <TextView
             android:id="@+id/tvNum6"
             android:text="69"
-            android:textSize="57sp"
+            android:textSize="40sp"
             android:background="#3CB371"
+            android:layout_margin="1dp"
             android:width="0dp"
             android:layout_columnWeight="1"
+            android:textAlignment="center"
             />
     </GridLayout>
+
+
     <TextView
         android:text="Ganhadores"
         android:textAlignment="center"
         android:textSize="40sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <LinearLayout
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:alignmentMode="alignMargins"
+        >
+        <TextView
+            android:text="Acertos"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:text="QTD Ganhadores"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:text="Valor do Prêmio"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:text="6"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:width="0dp"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:id="@+id/tvSena"
+            android:text="0"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:textAlignment="center"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:id="@+id/tvPremioSena"
+            android:text="0"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:textAlignment="center"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:text="5"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:width="0dp"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:id="@+id/tvQuina"
+            android:text="0"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:textAlignment="center"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:id="@+id/tvPremioQuina"
+            android:text="0"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:textAlignment="center"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:text="4"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:width="0dp"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:id="@+id/tvQuadra"
+            android:text="0"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:textAlignment="center"
+            android:layout_columnWeight="1"
+            />
+        <TextView
+            android:id="@+id/tvPremioQuadra"
+            android:text="0"
+            android:textSize="20dp"
+            android:width="0dp"
+            android:textAlignment="center"
+            android:layout_columnWeight="1"
+            />
+    </GridLayout>
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:alignmentMode="alignMargins"
@@ -111,14 +215,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="6 ACERTOS"
-            android:textAlignment="center"
+            android:textAlignment="inherit"
             android:textSize="18dp"
-            android:layout_weight="1"
+            android:layout_weight="4"
             />
         <TextView
             android:id="@+id/tvSena"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Concurso"
             android:textSize="18dp"
@@ -127,16 +231,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Premio"
-            android:textAlignment="center"
+            android:textAlignment="inherit"
             android:textSize="18dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             />
         <TextView
             android:id="@+id/tvPremioSena"
             android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Concurso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
             android:textSize="18dp"
             />
     </LinearLayout>
@@ -150,7 +254,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="5 ACERTOS"
-            android:textAlignment="center"
+            android:textAlignment="inherit"
             android:textSize="18dp"
             android:layout_weight="1"
             />
@@ -189,7 +293,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="4 ACERTOS"
-            android:textAlignment="center"
+            android:textAlignment="inherit"
             android:textSize="18dp"
             android:layout_weight="1"
             />
@@ -218,7 +322,7 @@
             android:textSize="18dp"
             android:textAlignment="gravity"
             />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <Button
         android:id="@+id/btnMeusJogos"

@@ -40,6 +40,7 @@ class NovoJogoActivity : Activity() {
             a.id = i
             a.text = i.toString()
             a.tag = i.toString()
+            a.textSize = 10f
             a.setOnClickListener({onSelect(it)})
             checks.add(a)
             gridNumeros.addView(a)
@@ -79,7 +80,7 @@ class NovoJogoActivity : Activity() {
         }
 
         if (cont > 6){
-            btnSalvar.setBackgroundColor(android.graphics.Color.RED)
+            btnSalvar.visibility = View.INVISIBLE
         }
     }
 

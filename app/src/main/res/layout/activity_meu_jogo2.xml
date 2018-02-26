@@ -97,9 +97,9 @@
     </GridLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="2">
+        >
         <TextView
             android:text="Concurso"
             android:textSize="30dp"
@@ -118,9 +118,9 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="2">
+        >
         <TextView
             android:text="Acertos"
             android:textSize="30dp"
@@ -139,8 +139,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="center">
         <Button
             android:layout_gravity="top"
@@ -149,5 +148,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
+    <TextView
+        android:id="@+id/txtExibePremiado"
+        android:text="Não Premiado"
+        android:textSize="45dp"
+        android:textAlignment="center"
+        android:autoSizeTextType="uniform"
+        android:background="@android:color/holo_red_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

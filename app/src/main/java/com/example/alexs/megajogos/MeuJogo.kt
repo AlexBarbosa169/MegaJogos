@@ -3,6 +3,7 @@ package com.example.alexs.megajogos
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_meu_jogo2.*
@@ -16,6 +17,7 @@ class MeuJogo : Activity() {
     lateinit var tvNum4 : TextView
     lateinit var tvNum5 : TextView
     lateinit var tvNum6 : TextView
+    lateinit var tvExibePrem : TextView
     lateinit var btnApaga : Button
     lateinit var megadao : MegaSenaDAO
     lateinit var txtConcurso : TextView
@@ -31,6 +33,7 @@ class MeuJogo : Activity() {
         txtQtdAcertos= findViewById(R.id.txtAcertos)
         txtConcurso = findViewById(R.id.txtConcurso)
         btnApaga = findViewById(R.id.btnApagar)
+        tvExibePrem = findViewById(R.id.txtExibePremiado)
         numerosImpressos.add(findViewById(R.id.tvNum1))
         numerosImpressos.add(findViewById(R.id.tvNum2))
         numerosImpressos.add(findViewById(R.id.tvNum3))
@@ -70,6 +73,13 @@ class MeuJogo : Activity() {
 
                 txtQtdAcertos.text = a.toString()
                 txtConcurso.text = js.getString("numero").toString()
+
+                if (a < 4){
+                    tvExibePrem.text = "Não Premiado"
+                }else{
+                    tvExibePrem.setBackgroundColor(android.graphics.Color.GREEN)
+                    tvExibePrem.text = "Parabéns!!!"
+                }
                 Log.i("numeros", meusNumeros.toString())
             }
         }
